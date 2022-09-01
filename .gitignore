@@ -1,0 +1,5 @@
+# Default ignored files
+/mdk.iws
+
+# Project exclude paths
+/.gradle/

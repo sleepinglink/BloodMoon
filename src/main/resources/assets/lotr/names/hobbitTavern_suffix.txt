@@ -1,0 +1,14 @@
+Dragon
+Dwarf
+Elf
+Farmer
+Goblin
+Hobbit
+Horse
+King
+Knight
+Pony
+Ranger
+Troll
+Wanderer
+Wizard

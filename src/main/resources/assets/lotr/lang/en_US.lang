@@ -3476,6 +3476,7 @@ lotr.enchant.protectFall1=Толстый
 lotr.enchant.protectFall2=Кованый
 lotr.enchant.protectFall3=Лёгкий
 lotr.enchant.protectFire.desc=%s защита от огня
+lotr.enchant.protectPoison.desc=%s защита от яда
 lotr.enchant.protectFire1=Охлаждающий
 lotr.enchant.protectFire2=Противопожарный
 lotr.enchant.protectFire3=Белегостский

@@ -34,6 +34,8 @@ public class LOTREnchantmentCombining {
         LOTREnchantmentCombining.combine(LOTREnchantment.protect1, LOTREnchantment.protect2, 2000);
         LOTREnchantmentCombining.combine(LOTREnchantment.protectFire1, LOTREnchantment.protectFire2, 400);
         LOTREnchantmentCombining.combine(LOTREnchantment.protectFire2, LOTREnchantment.protectFire3, 1500);
+        LOTREnchantmentCombining.combine(LOTREnchantment.protectPoison1, LOTREnchantment.protectPoison2, 400);
+        LOTREnchantmentCombining.combine(LOTREnchantment.protectPoison2, LOTREnchantment.protectPoison3, 1500);
         LOTREnchantmentCombining.combine(LOTREnchantment.protectFall1, LOTREnchantment.protectFall2, 400);
         LOTREnchantmentCombining.combine(LOTREnchantment.protectFall2, LOTREnchantment.protectFall3, 1500);
         LOTREnchantmentCombining.combine(LOTREnchantment.protectRanged1, LOTREnchantment.protectRanged2, 400);

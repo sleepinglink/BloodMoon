@@ -562,6 +562,7 @@ public class LOTRMod {
     public static Block daub;
     public static Block gateRhun;
     public static Block yamCrop;
+    public static Block riceCrop;
     public static Block kebabBlock;
     public static Block stairsPomegranate;
     public static Block oreSalt;
@@ -1489,6 +1490,7 @@ public class LOTRMod {
     public static Item mugTermiteTequila;
     public static Item rhunFirePot;
     public static Item yam;
+    public static Item rice;
     public static Item yamRoast;
     public static Item bodyKaftan;
     public static Item legsKaftan;
@@ -2567,6 +2569,7 @@ public class LOTRMod {
         daub = new LOTRBlockDaub().setBlockName("lotr:daub");
         gateRhun = LOTRBlockGate.createWooden(true).setBlockName("lotr:gateRhun");
         yamCrop = new LOTRBlockYamCrop().setBlockName("lotr:yam");
+        yamCrop = new LOTRBlockRiceCrop().setBlockName("lotr:rice");
         kebabBlock = new LOTRBlockKebab().setBlockName("lotr:kebabBlock");
         stairsPomegranate = new LOTRBlockStairs(planks3, 2).setBlockName("lotr:stairsPomegranate");
         oreSalt = new LOTRBlockOre().setBlockName("lotr:oreSalt");

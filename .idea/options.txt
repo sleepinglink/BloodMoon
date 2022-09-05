@@ -11,13 +11,13 @@ anaglyph3d:false
 advancedOpengl:false
 maxFps:120
 fboEnable:true
-difficulty:3
+difficulty:2
 fancyGraphics:true
 ao:2
 clouds:true
 resourcePacks:[]
 lastServer:
-lang:en_US
+lang:ru_RU
 chatVisibility:0
 chatColors:true
 chatLinks:true
@@ -93,7 +93,7 @@ key_Alignment Cycle Right:205
 key_Alignment Group Prev:200
 key_Alignment Group Next:208
 soundCategory_master:1.0
-soundCategory_music:1.0
+soundCategory_music:0.0
 soundCategory_record:1.0
 soundCategory_weather:1.0
 soundCategory_block:1.0

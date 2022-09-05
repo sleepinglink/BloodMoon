@@ -4,6 +4,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.EnumDifficulty;
 
@@ -45,7 +46,7 @@ public class LOTRItemDagger extends LOTRItemSword {
     }
 
     public static void applyPoisonedWoundEffect(EntityLivingBase entity) {
-        int duration = 2;
+        int duration = 30;
         PotionEffect poisonedWound = new PotionEffect(LOTRPoisonDebuffs.woundPoison.id, duration);
         entity.addPotionEffect(poisonedWound);
     }

@@ -17,7 +17,7 @@ public class LOTRPoisonDebuffs {
     }
 
     public static void registerWoundPotion() {
-        drinkPoison = new LOTRPotionPoisonedWound();
+        woundPoison = new LOTRPotionPoisonedWound();
     }
 
     public static void addPoisonEffect(EntityPlayer entityplayer, ItemStack itemstack) {

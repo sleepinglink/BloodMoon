@@ -9,8 +9,8 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 
-public class LOTRPotionPoisonKilling extends Potion {
-    public LOTRPotionPoisonKilling() {
+public class LOTRPotionPoisonedDrink extends Potion {
+    public LOTRPotionPoisonedDrink() {
         super(30, true, Potion.poison.getLiquidColor());
         this.setPotionName("potion.lotr.drinkPoison");
         this.setEffectiveness(Potion.poison.getEffectiveness());

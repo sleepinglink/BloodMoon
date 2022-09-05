@@ -49,12 +49,12 @@ public abstract class LOTREnchantment {
     public static final LOTREnchantment protect2 = new LOTREnchantmentProtection("protect2", 2).setEnchantWeight(3).setSkilful();
     public static final LOTREnchantment protectWeak1 = new LOTREnchantmentProtection("protectWeak1", -1).setEnchantWeight(5);
     public static final LOTREnchantment protectWeak2 = new LOTREnchantmentProtection("protectWeak2", -2).setEnchantWeight(2);
-    public static final LOTREnchantment protectFire1 = new LOTREnchantmentProtectionFire("protectFire1", 1).setEnchantWeight(5);
-    public static final LOTREnchantment protectFire2 = new LOTREnchantmentProtectionFire("protectFire2", 2).setEnchantWeight(2).setSkilful();
-    public static final LOTREnchantment protectFire3 = new LOTREnchantmentProtectionFire("protectFire3", 3).setEnchantWeight(1).setSkilful();
     public static final LOTREnchantment protectPoison1 = new LOTREnchantmentProtectionPoison("protectPoison1", 1).setEnchantWeight(5);
     public static final LOTREnchantment protectPoison2 = new LOTREnchantmentProtectionPoison("protectPoison2", 2).setEnchantWeight(2).setSkilful();
     public static final LOTREnchantment protectPoison3 = new LOTREnchantmentProtectionPoison("protectPoison3", 3).setEnchantWeight(1).setSkilful();
+    public static final LOTREnchantment protectFire1 = new LOTREnchantmentProtectionFire("protectFire1", 1).setEnchantWeight(5);
+    public static final LOTREnchantment protectFire2 = new LOTREnchantmentProtectionFire("protectFire2", 2).setEnchantWeight(2).setSkilful();
+    public static final LOTREnchantment protectFire3 = new LOTREnchantmentProtectionFire("protectFire3", 3).setEnchantWeight(1).setSkilful();
     public static final LOTREnchantment protectFall1 = new LOTREnchantmentProtectionFall("protectFall1", 1).setEnchantWeight(5);
     public static final LOTREnchantment protectFall2 = new LOTREnchantmentProtectionFall("protectFall2", 2).setEnchantWeight(2).setSkilful();
     public static final LOTREnchantment protectFall3 = new LOTREnchantmentProtectionFall("protectFall3", 3).setEnchantWeight(1).setSkilful();

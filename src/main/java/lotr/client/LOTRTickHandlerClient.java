@@ -704,7 +704,7 @@ public class LOTRTickHandlerClient {
                     GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
                 }
             }
-            if(event.type == RenderGameOverlayEvent.ElementType.HEALTH && entityplayer.isPotionActive(LOTRPoisonedDrinks.killingPoison) && !entityplayer.isPotionActive(Potion.poison)) {
+            if(event.type == RenderGameOverlayEvent.ElementType.HEALTH && entityplayer.isPotionActive(LOTRPoisonDebuffs.drinkPoison) && !entityplayer.isPotionActive(Potion.poison)) {
                 entityplayer.addPotionEffect(new PotionEffect(Potion.poison.id, 20));
                 this.addedClientPoisonEffect = true;
             }
@@ -912,7 +912,7 @@ public class LOTRTickHandlerClient {
             tooltip.addAll(enchGood);
             tooltip.addAll(enchBad);
         }
-        if(LOTRPoisonedDrinks.isDrinkPoisoned(itemstack) && LOTRPoisonedDrinks.canPlayerSeePoisoned(itemstack, entityplayer)) {
+        if(LOTRPoisonDebuffs.isDrinkPoisoned(itemstack) && LOTRPoisonDebuffs.canPlayerSeePoisoned(itemstack, entityplayer)) {
             tooltip.add((EnumChatFormatting.DARK_GREEN) + StatCollector.translateToLocal("item.lotr.drink.poison"));
         }
         if(itemstack.getTagCompound() != null && itemstack.getTagCompound().hasKey("LOTROwner")) {

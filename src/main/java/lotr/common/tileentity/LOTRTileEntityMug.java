@@ -2,7 +2,7 @@ package lotr.common.tileentity;
 
 import lotr.common.LOTRMod;
 import lotr.common.item.LOTRItemMug;
-import lotr.common.item.LOTRPoisonedDrinks;
+import lotr.common.item.LOTRPoisonDebuffs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -68,15 +68,15 @@ public class LOTRTileEntityMug extends TileEntity {
     public boolean canPoisonMug() {
         ItemStack itemstack = this.getMugItem();
         if(itemstack != null) {
-            return LOTRPoisonedDrinks.canPoison(itemstack) && !LOTRPoisonedDrinks.isDrinkPoisoned(itemstack);
+            return LOTRPoisonDebuffs.canPoison(itemstack) && !LOTRPoisonDebuffs.isDrinkPoisoned(itemstack);
         }
         return false;
     }
 
     public void poisonMug(EntityPlayer entityplayer) {
         ItemStack itemstack = this.getMugItem();
-        LOTRPoisonedDrinks.setDrinkPoisoned(itemstack, true);
-        LOTRPoisonedDrinks.setPoisonerPlayer(itemstack, entityplayer);
+        LOTRPoisonDebuffs.setDrinkPoisoned(itemstack, true);
+        LOTRPoisonDebuffs.setPoisonerPlayer(itemstack, entityplayer);
         this.setMugItem(itemstack);
     }
 

@@ -7,17 +7,22 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 
-public class LOTRPoisonedDrinks {
+public class LOTRPoisonDebuffs {
     private static final int POISON_DURATION = 300;
-    public static Potion killingPoison;
+    public static Potion drinkPoison;
+    public static Potion woundPoison;
 
-    public static void registerPotion() {
-        killingPoison = new LOTRPotionPoisonKilling();
+    public static void registerDrinkPotion() {
+        drinkPoison = new LOTRPotionPoisonedDrink();
+    }
+
+    public static void registerWoundPotion() {
+        drinkPoison = new LOTRPotionPoisonedWound();
     }
 
     public static void addPoisonEffect(EntityPlayer entityplayer, ItemStack itemstack) {
         int duration = 300;
-        entityplayer.addPotionEffect(new PotionEffect(LOTRPoisonedDrinks.killingPoison.id, duration));
+        entityplayer.addPotionEffect(new PotionEffect(LOTRPoisonDebuffs.drinkPoison.id, duration));
     }
 
     public static boolean canPoison(ItemStack itemstack) {
@@ -50,7 +55,7 @@ public class LOTRPoisonedDrinks {
     }
 
     public static void setPoisonerPlayer(ItemStack itemstack, EntityPlayer entityplayer) {
-        LOTRPoisonedDrinks.setPoisonerUUID(itemstack, entityplayer.getUniqueID());
+        LOTRPoisonDebuffs.setPoisonerUUID(itemstack, entityplayer.getUniqueID());
     }
 
     public static void setPoisonerUUID(ItemStack itemstack, UUID uuid) {
@@ -61,7 +66,7 @@ public class LOTRPoisonedDrinks {
     }
 
     public static boolean canPlayerSeePoisoned(ItemStack itemstack, EntityPlayer entityplayer) {
-        UUID uuid = LOTRPoisonedDrinks.getPoisonerUUID(itemstack);
+        UUID uuid = LOTRPoisonDebuffs.getPoisonerUUID(itemstack);
         if(uuid == null) {
             return true;
         }

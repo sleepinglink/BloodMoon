@@ -43,7 +43,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.*;
-import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
 import net.minecraft.server.MinecraftServer;
@@ -52,7 +51,6 @@ import net.minecraft.world.*;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraftforge.common.DimensionManager;
-import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.oredict.OreDictionary;
 
 @Mod(modid = "lotr", name = "LOTR", version = "BloodMoon.1.1.1", dependencies = "required-after:Forge@[10.13.4.1558,)", guiFactory = "lotr.client.gui.config.LOTRGuiFactory")
@@ -2803,7 +2801,7 @@ public class LOTRMod {
         lembas = new LOTRItemFood(20, 2.0f, false).setUnlocalizedName("lotr:lembas");
         nauriteGem = new Item().setCreativeTab(LOTRCreativeTabs.tabMaterials).setUnlocalizedName("lotr:naurite");
         daggerOrc = new LOTRItemDagger(LOTRMaterial.MORDOR).setUnlocalizedName("lotr:daggerOrc");
-        daggerOrcPoisoned = new LOTRItemDagger(LOTRMaterial.MORDOR, LOTRItemDagger.DaggerEffect.POISON).setUnlocalizedName("lotr:daggerOrcPoisoned");
+        daggerOrcPoisoned = new LOTRItemDagger(LOTRMaterial.MORDOR, LOTRItemDagger.DaggerEffect.POISONED_WOUND).setUnlocalizedName("lotr:daggerOrcPoisoned");
    
         sting = new LOTRItemSting().setIsElvenBlade().setUnlocalizedName("lotr:sting");
         spawnEgg = new LOTRItemSpawnEgg().setUnlocalizedName("lotr:spawnEgg");
@@ -2917,7 +2915,7 @@ public class LOTRMod {
         scimitarUruk = new LOTRItemSword(LOTRMaterial.URUK).setUnlocalizedName("lotr:scimitarUruk");
         hoeUruk = new LOTRItemHoe(LOTRMaterial.URUK).setUnlocalizedName("lotr:hoeUruk");
         daggerUruk = new LOTRItemDagger(LOTRMaterial.URUK).setUnlocalizedName("lotr:daggerUruk");
-        daggerUrukPoisoned = new LOTRItemDagger(LOTRMaterial.URUK, LOTRItemDagger.DaggerEffect.POISON).setUnlocalizedName("lotr:daggerUrukPoisoned");
+        daggerUrukPoisoned = new LOTRItemDagger(LOTRMaterial.URUK, LOTRItemDagger.DaggerEffect.POISONED_WOUND).setUnlocalizedName("lotr:daggerUrukPoisoned");
         battleaxeUruk = new LOTRItemBattleaxe(LOTRMaterial.URUK).setUnlocalizedName("lotr:battleaxeUruk");
         hammerUruk = new LOTRItemHammer(LOTRMaterial.URUK).setUnlocalizedName("lotr:hammerUruk");
         spearUruk = new LOTRItemSpear(LOTRMaterial.URUK).setUnlocalizedName("lotr:spearUruk");
@@ -3003,19 +3001,19 @@ public class LOTRMod {
         commandSword = new LOTRItemCommandSword().setUnlocalizedName("lotr:commandSword");
         hobbitPancake = new LOTRItemFood(4, 0.6f, false).setUnlocalizedName("lotr:hobbitPancake");
         bottlePoison = new LOTRItemBottlePoison().setUnlocalizedName("lotr:bottlePoison");
-        daggerBronzePoisoned = new LOTRItemDagger(LOTRMaterial.BRONZE, LOTRItemDagger.DaggerEffect.POISON).setUnlocalizedName("lotr:daggerBronzePoisoned");
-        daggerIronPoisoned = new LOTRItemDagger(Item.ToolMaterial.IRON, LOTRItemDagger.DaggerEffect.POISON).setUnlocalizedName("lotr:daggerIronPoisoned");
-        daggerMithrilPoisoned = new LOTRItemDagger(LOTRMaterial.MITHRIL, LOTRItemDagger.DaggerEffect.POISON).setUnlocalizedName("lotr:daggerMithrilPoisoned");
-        daggerGondorPoisoned = new LOTRItemDagger(LOTRMaterial.GONDOR, LOTRItemDagger.DaggerEffect.POISON).setUnlocalizedName("lotr:daggerGondorPoisoned");
-        daggerElvenPoisoned = new LOTRItemDagger(LOTRMaterial.GALADHRIM, LOTRItemDagger.DaggerEffect.POISON).setIsElvenBlade().setUnlocalizedName("lotr:daggerElvenPoisoned");
-        daggerDwarvenPoisoned = new LOTRItemDagger(LOTRMaterial.DWARVEN, LOTRItemDagger.DaggerEffect.POISON).setUnlocalizedName("lotr:daggerDwarvenPoisoned");
-        daggerRohanPoisoned = new LOTRItemDagger(LOTRMaterial.ROHAN, LOTRItemDagger.DaggerEffect.POISON).setUnlocalizedName("lotr:daggerRohanPoisoned");
-        daggerWoodElvenPoisoned = new LOTRItemDagger(LOTRMaterial.WOOD_ELVEN, LOTRItemDagger.DaggerEffect.POISON).setIsElvenBlade().setUnlocalizedName("lotr:daggerWoodElvenPoisoned");
+        daggerBronzePoisoned = new LOTRItemDagger(LOTRMaterial.BRONZE, LOTRItemDagger.DaggerEffect.POISONED_WOUND).setUnlocalizedName("lotr:daggerBronzePoisoned");
+        daggerIronPoisoned = new LOTRItemDagger(Item.ToolMaterial.IRON, LOTRItemDagger.DaggerEffect.POISONED_WOUND).setUnlocalizedName("lotr:daggerIronPoisoned");
+        daggerMithrilPoisoned = new LOTRItemDagger(LOTRMaterial.MITHRIL, LOTRItemDagger.DaggerEffect.POISONED_WOUND).setUnlocalizedName("lotr:daggerMithrilPoisoned");
+        daggerGondorPoisoned = new LOTRItemDagger(LOTRMaterial.GONDOR, LOTRItemDagger.DaggerEffect.POISONED_WOUND).setUnlocalizedName("lotr:daggerGondorPoisoned");
+        daggerElvenPoisoned = new LOTRItemDagger(LOTRMaterial.GALADHRIM, LOTRItemDagger.DaggerEffect.POISONED_WOUND).setIsElvenBlade().setUnlocalizedName("lotr:daggerElvenPoisoned");
+        daggerDwarvenPoisoned = new LOTRItemDagger(LOTRMaterial.DWARVEN, LOTRItemDagger.DaggerEffect.POISONED_WOUND).setUnlocalizedName("lotr:daggerDwarvenPoisoned");
+        daggerRohanPoisoned = new LOTRItemDagger(LOTRMaterial.ROHAN, LOTRItemDagger.DaggerEffect.POISONED_WOUND).setUnlocalizedName("lotr:daggerRohanPoisoned");
+        daggerWoodElvenPoisoned = new LOTRItemDagger(LOTRMaterial.WOOD_ELVEN, LOTRItemDagger.DaggerEffect.POISONED_WOUND).setIsElvenBlade().setUnlocalizedName("lotr:daggerWoodElvenPoisoned");
         banner = new LOTRItemBanner().setUnlocalizedName("lotr:banner");
         sulfurMatch = new LOTRItemMatch().setUnlocalizedName("lotr:sulfurMatch");
         swordAngmar = new LOTRItemSword(LOTRMaterial.ANGMAR).setUnlocalizedName("lotr:swordAngmar");
         daggerAngmar = new LOTRItemDagger(LOTRMaterial.ANGMAR).setUnlocalizedName("lotr:daggerAngmar");
-        daggerAngmarPoisoned = new LOTRItemDagger(LOTRMaterial.ANGMAR, LOTRItemDagger.DaggerEffect.POISON).setUnlocalizedName("lotr:daggerAngmarPoisoned");
+        daggerAngmarPoisoned = new LOTRItemDagger(LOTRMaterial.ANGMAR, LOTRItemDagger.DaggerEffect.POISONED_WOUND).setUnlocalizedName("lotr:daggerAngmarPoisoned");
         battleaxeAngmar = new LOTRItemBattleaxe(LOTRMaterial.ANGMAR).setUnlocalizedName("lotr:battleaxeAngmar");
         hammerAngmar = new LOTRItemHammer(LOTRMaterial.ANGMAR).setUnlocalizedName("lotr:hammerAngmar");
         spearAngmar = new LOTRItemSpear(LOTRMaterial.ANGMAR).setUnlocalizedName("lotr:spearAngmar");
@@ -3066,12 +3064,12 @@ public class LOTRMod {
         swordHighElven = new LOTRItemSword(LOTRMaterial.HIGH_ELVEN).setIsElvenBlade().setUnlocalizedName("lotr:swordHighElven");
         hoeHighElven = new LOTRItemHoe(LOTRMaterial.HIGH_ELVEN).setUnlocalizedName("lotr:hoeHighElven");
         daggerHighElven = new LOTRItemDagger(LOTRMaterial.HIGH_ELVEN).setIsElvenBlade().setUnlocalizedName("lotr:daggerHighElven");
-        daggerHighElvenPoisoned = new LOTRItemDagger(LOTRMaterial.HIGH_ELVEN, LOTRItemDagger.DaggerEffect.POISON).setIsElvenBlade().setUnlocalizedName("lotr:daggerHighElvenPoisoned");
+        daggerHighElvenPoisoned = new LOTRItemDagger(LOTRMaterial.HIGH_ELVEN, LOTRItemDagger.DaggerEffect.POISONED_WOUND).setIsElvenBlade().setUnlocalizedName("lotr:daggerHighElvenPoisoned");
         spearHighElven = new LOTRItemSpear(LOTRMaterial.HIGH_ELVEN).setUnlocalizedName("lotr:spearHighElven");
         highElvenBedItem = new LOTRItemBed(highElvenBed).setUnlocalizedName("lotr:highElvenBed");
 
         daggerNearHarad = new LOTRItemDagger(LOTRMaterial.UMBAR).setUnlocalizedName("lotr:daggerNearHarad");
-        daggerNearHaradPoisoned = new LOTRItemDagger(LOTRMaterial.UMBAR, LOTRItemDagger.DaggerEffect.POISON).setUnlocalizedName("lotr:daggerNearHaradPoisoned");
+        daggerNearHaradPoisoned = new LOTRItemDagger(LOTRMaterial.UMBAR, LOTRItemDagger.DaggerEffect.POISONED_WOUND).setUnlocalizedName("lotr:daggerNearHaradPoisoned");
         spearNearHarad = new LOTRItemSpear(LOTRMaterial.UMBAR).setUnlocalizedName("lotr:spearNearHarad");
         nearHaradBow = new LOTRItemBow(LOTRMaterial.NEAR_HARAD, 1.25).setDrawTime(20).setUnlocalizedName("lotr:nearHaradBow");
         date = new LOTRItemHangingFruit(2, 0.3f, false, dateBlock).setUnlocalizedName("lotr:date");
@@ -3083,7 +3081,7 @@ public class LOTRMod {
         swordBlueDwarven = new LOTRItemSword(LOTRMaterial.BLUE_DWARVEN).setUnlocalizedName("lotr:swordBlueDwarven");
         hoeBlueDwarven = new LOTRItemHoe(LOTRMaterial.BLUE_DWARVEN).setUnlocalizedName("lotr:hoeBlueDwarven");
         daggerBlueDwarven = new LOTRItemDagger(LOTRMaterial.BLUE_DWARVEN).setUnlocalizedName("lotr:daggerBlueDwarven");
-        daggerBlueDwarvenPoisoned = new LOTRItemDagger(LOTRMaterial.BLUE_DWARVEN, LOTRItemDagger.DaggerEffect.POISON).setUnlocalizedName("lotr:daggerBlueDwarvenPoisoned");
+        daggerBlueDwarvenPoisoned = new LOTRItemDagger(LOTRMaterial.BLUE_DWARVEN, LOTRItemDagger.DaggerEffect.POISONED_WOUND).setUnlocalizedName("lotr:daggerBlueDwarvenPoisoned");
         battleaxeBlueDwarven = new LOTRItemBattleaxe(LOTRMaterial.BLUE_DWARVEN).setUnlocalizedName("lotr:battleaxeBlueDwarven");
         hammerBlueDwarven = new LOTRItemHammer(LOTRMaterial.BLUE_DWARVEN).setUnlocalizedName("lotr:hammerBlueDwarven");
         mattockBlueDwarven = new LOTRItemMattock(LOTRMaterial.BLUE_DWARVEN).setUnlocalizedName("lotr:mattockBlueDwarven");
@@ -3116,7 +3114,7 @@ public class LOTRMod {
         orcSkullStaff = new LOTRItemOrcSkullStaff().setUnlocalizedName("lotr:orcSkullStaff");
         swordDolGuldur = new LOTRItemSword(LOTRMaterial.DOL_GULDUR).setUnlocalizedName("lotr:swordDolGuldur");
         daggerDolGuldur = new LOTRItemDagger(LOTRMaterial.DOL_GULDUR).setUnlocalizedName("lotr:daggerDolGuldur");
-        daggerDolGuldurPoisoned = new LOTRItemDagger(LOTRMaterial.DOL_GULDUR, LOTRItemDagger.DaggerEffect.POISON).setUnlocalizedName("lotr:daggerDolGuldurPoisoned");
+        daggerDolGuldurPoisoned = new LOTRItemDagger(LOTRMaterial.DOL_GULDUR, LOTRItemDagger.DaggerEffect.POISONED_WOUND).setUnlocalizedName("lotr:daggerDolGuldurPoisoned");
         spearDolGuldur = new LOTRItemSpear(LOTRMaterial.DOL_GULDUR).setUnlocalizedName("lotr:spearDolGuldur");
         shovelDolGuldur = new LOTRItemShovel(LOTRMaterial.DOL_GULDUR).setUnlocalizedName("lotr:shovelDolGuldur");
         axeDolGuldur = new LOTRItemAxe(LOTRMaterial.DOL_GULDUR).setUnlocalizedName("lotr:axeDolGuldur");
@@ -3147,7 +3145,7 @@ public class LOTRMod {
         blackUrukSteel = new Item().setCreativeTab(LOTRCreativeTabs.tabMaterials).setUnlocalizedName("lotr:blackUrukSteel");
         scimitarBlackUruk = new LOTRItemSword(LOTRMaterial.BLACK_URUK).setUnlocalizedName("lotr:scimitarBlackUruk");
         daggerBlackUruk = new LOTRItemDagger(LOTRMaterial.BLACK_URUK).setUnlocalizedName("lotr:daggerBlackUruk");
-        daggerBlackUrukPoisoned = new LOTRItemDagger(LOTRMaterial.BLACK_URUK, LOTRItemDagger.DaggerEffect.POISON).setUnlocalizedName("lotr:daggerBlackUrukPoisoned");
+        daggerBlackUrukPoisoned = new LOTRItemDagger(LOTRMaterial.BLACK_URUK, LOTRItemDagger.DaggerEffect.POISONED_WOUND).setUnlocalizedName("lotr:daggerBlackUrukPoisoned");
         spearBlackUruk = new LOTRItemSpear(LOTRMaterial.BLACK_URUK).setUnlocalizedName("lotr:spearBlackUruk");
         battleaxeBlackUruk = new LOTRItemBattleaxe(LOTRMaterial.BLACK_URUK).setUnlocalizedName("lotr:battleaxeBlackUruk");
         hammerBlackUruk = new LOTRItemHammer(LOTRMaterial.BLACK_URUK).setUnlocalizedName("lotr:hammerBlackUruk");
@@ -3160,7 +3158,7 @@ public class LOTRMod {
         utumnoKey = new LOTRItemUtumnoKey().setUnlocalizedName("lotr:utumnoKey");
         swordUtumno = new LOTRItemSword(LOTRMaterial.UTUMNO).setUnlocalizedName("lotr:swordUtumno");
         daggerUtumno = new LOTRItemDagger(LOTRMaterial.UTUMNO).setUnlocalizedName("lotr:daggerUtumno");
-        daggerUtumnoPoisoned = new LOTRItemDagger(LOTRMaterial.UTUMNO, LOTRItemDagger.DaggerEffect.POISON).setUnlocalizedName("lotr:daggerUtumnoPoisoned");
+        daggerUtumnoPoisoned = new LOTRItemDagger(LOTRMaterial.UTUMNO, LOTRItemDagger.DaggerEffect.POISONED_WOUND).setUnlocalizedName("lotr:daggerUtumnoPoisoned");
         spearUtumno = new LOTRItemSpear(LOTRMaterial.UTUMNO).setUnlocalizedName("lotr:spearUtumno");
         battleaxeUtumno = new LOTRItemBattleaxe(LOTRMaterial.UTUMNO).setUnlocalizedName("lotr:battleaxeUtumno");
         hammerUtumno = new LOTRItemHammer(LOTRMaterial.UTUMNO).setUnlocalizedName("lotr:hammerUtumno");
@@ -3184,7 +3182,7 @@ public class LOTRMod {
         maceHalfTroll = new LOTRItemHammer(LOTRMaterial.HALF_TROLL).setUnlocalizedName("lotr:maceHalfTroll");
         scimitarHalfTroll = new LOTRItemSword(LOTRMaterial.HALF_TROLL).setUnlocalizedName("lotr:scimitarHalfTroll");
         daggerHalfTroll = new LOTRItemDagger(LOTRMaterial.HALF_TROLL).setUnlocalizedName("lotr:daggerHalfTroll");
-        daggerHalfTrollPoisoned = new LOTRItemDagger(LOTRMaterial.HALF_TROLL, LOTRItemDagger.DaggerEffect.POISON).setUnlocalizedName("lotr:daggerHalfTrollPoisoned");
+        daggerHalfTrollPoisoned = new LOTRItemDagger(LOTRMaterial.HALF_TROLL, LOTRItemDagger.DaggerEffect.POISONED_WOUND).setUnlocalizedName("lotr:daggerHalfTrollPoisoned");
         mugTorogDraught = new LOTRItemMug(0.6f).setDrinkStats(6, 0.6f).addPotionEffect(Potion.damageBoost.id, 90).setUnlocalizedName("lotr:mugTorogDraught");
         berryPieItem = new LOTRItemPlaceableFood(berryPie).setUnlocalizedName("lotr:berryPie");
         mugBlueberryJuice = new LOTRItemMug(true, true).setDrinkStats(5, 0.5f).setUnlocalizedName("lotr:mugBlueberryJuice");
@@ -3215,7 +3213,7 @@ public class LOTRMod {
         horseArmorDolAmroth = new LOTRItemMountArmor(LOTRMaterial.DOL_AMROTH, LOTRItemMountArmor.Mount.HORSE).setUnlocalizedName("lotr:horseArmorDolAmroth");
         swanFeather = new Item().setCreativeTab(LOTRCreativeTabs.tabMaterials).setUnlocalizedName("lotr:swanFeather");
         daggerMoredain = new LOTRItemDagger(LOTRMaterial.MOREDAIN).setUnlocalizedName("lotr:daggerMoredain");
-        daggerMoredainPoisoned = new LOTRItemDagger(LOTRMaterial.MOREDAIN, LOTRItemDagger.DaggerEffect.POISON).setUnlocalizedName("lotr:daggerMoredainPoisoned");
+        daggerMoredainPoisoned = new LOTRItemDagger(LOTRMaterial.MOREDAIN, LOTRItemDagger.DaggerEffect.POISONED_WOUND).setUnlocalizedName("lotr:daggerMoredainPoisoned");
         battleaxeMoredain = new LOTRItemBattleaxe(LOTRMaterial.MOREDAIN).setUnlocalizedName("lotr:battleaxeMoredain");
         spearMoredain = new LOTRItemSpear(LOTRMaterial.MOREDAIN_SPEAR).setUnlocalizedName("lotr:spearMoredain");
         helmetMoredain = new LOTRItemArmor(LOTRMaterial.MOREDAIN, 0).setUnlocalizedName("lotr:helmetMoredain");
@@ -3262,7 +3260,7 @@ public class LOTRMod {
         axeTauredain = new LOTRItemAxe(LOTRMaterial.TAUREDAIN).setUnlocalizedName("lotr:axeTauredain");
         hoeTauredain = new LOTRItemHoe(LOTRMaterial.TAUREDAIN).setUnlocalizedName("lotr:hoeTauredain");
         daggerTauredain = new LOTRItemDagger(LOTRMaterial.TAUREDAIN).setUnlocalizedName("lotr:daggerTauredain");
-        daggerTauredainPoisoned = new LOTRItemDagger(LOTRMaterial.TAUREDAIN, LOTRItemDagger.DaggerEffect.POISON).setUnlocalizedName("lotr:daggerTauredainPoisoned");
+        daggerTauredainPoisoned = new LOTRItemDagger(LOTRMaterial.TAUREDAIN, LOTRItemDagger.DaggerEffect.POISONED_WOUND).setUnlocalizedName("lotr:daggerTauredainPoisoned");
         spearTauredain = new LOTRItemSpear(LOTRMaterial.TAUREDAIN).setUnlocalizedName("lotr:spearTauredain");
         swordTauredain = new LOTRItemSword(LOTRMaterial.TAUREDAIN).setUnlocalizedName("lotr:swordTauredain");
         helmetTauredain = new LOTRItemArmor(LOTRMaterial.TAUREDAIN, 0).setUnlocalizedName("lotr:helmetTauredain");
@@ -3283,7 +3281,7 @@ public class LOTRMod {
         tauredainDart = new LOTRItemDart().setUnlocalizedName("lotr:tauredainDart");
         tauredainDartPoisoned = new LOTRItemDart().setPoisoned().setUnlocalizedName("lotr:tauredainDartPoisoned");
         daggerBarrow = new LOTRItemDagger(LOTRMaterial.BARROW).setUnlocalizedName("lotr:daggerBarrow");
-        daggerBarrowPoisoned = new LOTRItemDagger(LOTRMaterial.BARROW, LOTRItemDagger.DaggerEffect.POISON).setUnlocalizedName("lotr:daggerBarrowPoisoned");
+        daggerBarrowPoisoned = new LOTRItemDagger(LOTRMaterial.BARROW, LOTRItemDagger.DaggerEffect.POISONED_WOUND).setUnlocalizedName("lotr:daggerBarrowPoisoned");
         muttonRaw = new LOTRItemFood(3, 0.3f, true).setUnlocalizedName("lotr:muttonRaw");
         muttonCooked = new LOTRItemFood(8, 0.8f, true).setUnlocalizedName("lotr:muttonCooked");
         maceNearHarad = new LOTRItemHammer(LOTRMaterial.UMBAR).setUnlocalizedName("lotr:maceNearHarad");
@@ -3308,7 +3306,7 @@ public class LOTRMod {
         pikeBlueDwarven = new LOTRItemPike(LOTRMaterial.BLUE_DWARVEN).setUnlocalizedName("lotr:pikeBlueDwarven");
         corn = new LOTRItemFood(2, 0.3f, false).setUnlocalizedName("lotr:corn");
         daggerDolAmroth = new LOTRItemDagger(LOTRMaterial.DOL_AMROTH).setUnlocalizedName("lotr:daggerDolAmroth");
-        daggerDolAmrothPoisoned = new LOTRItemDagger(LOTRMaterial.DOL_AMROTH, LOTRItemDagger.DaggerEffect.POISON).setUnlocalizedName("lotr:daggerDolAmrothPoisoned");
+        daggerDolAmrothPoisoned = new LOTRItemDagger(LOTRMaterial.DOL_AMROTH, LOTRItemDagger.DaggerEffect.POISONED_WOUND).setUnlocalizedName("lotr:daggerDolAmrothPoisoned");
         helmetGundabadUruk = new LOTRItemArmor(LOTRMaterial.GUNDABAD_URUK, 0, "helmet").setUnlocalizedName("lotr:helmetGundabadUruk");
         bodyGundabadUruk = new LOTRItemArmor(LOTRMaterial.GUNDABAD_URUK, 1).setUnlocalizedName("lotr:bodyGundabadUruk");
         legsGundabadUruk = new LOTRItemArmor(LOTRMaterial.GUNDABAD_URUK, 2).setUnlocalizedName("lotr:legsGundabadUruk");
@@ -3341,7 +3339,7 @@ public class LOTRMod {
         camelCooked = new LOTRItemFood(6, 0.6f, true).setUnlocalizedName("lotr:camelCooked");
         swordDale = new LOTRItemSword(LOTRMaterial.DALE).setUnlocalizedName("lotr:swordDale");
         daggerDale = new LOTRItemDagger(LOTRMaterial.DALE).setUnlocalizedName("lotr:daggerDale");
-        daggerDalePoisoned = new LOTRItemDagger(LOTRMaterial.DALE, LOTRItemDagger.DaggerEffect.POISON).setUnlocalizedName("lotr:daggerDalePoisoned");
+        daggerDalePoisoned = new LOTRItemDagger(LOTRMaterial.DALE, LOTRItemDagger.DaggerEffect.POISONED_WOUND).setUnlocalizedName("lotr:daggerDalePoisoned");
         spearDale = new LOTRItemSpear(LOTRMaterial.DALE).setUnlocalizedName("lotr:spearDale");
         battleaxeDale = new LOTRItemBattleaxe(LOTRMaterial.DALE).setUnlocalizedName("lotr:battleaxeDale");
         helmetDale = new LOTRItemArmor(LOTRMaterial.DALE, 0).setUnlocalizedName("lotr:helmetDale");
@@ -3367,14 +3365,14 @@ public class LOTRMod {
         legsRangerIthilien = new LOTRItemArmor(LOTRMaterial.RANGER_ITHILIEN, 2).setUnlocalizedName("lotr:legsRangerIthilien");
         bootsRangerIthilien = new LOTRItemArmor(LOTRMaterial.RANGER_ITHILIEN, 3).setUnlocalizedName("lotr:bootsRangerIthilien");
         daggerGundabadUruk = new LOTRItemDagger(LOTRMaterial.GUNDABAD_URUK).setUnlocalizedName("lotr:daggerGundabadUruk");
-        daggerGundabadUrukPoisoned = new LOTRItemDagger(LOTRMaterial.GUNDABAD_URUK, LOTRItemDagger.DaggerEffect.POISON).setUnlocalizedName("lotr:daggerGundabadUrukPoisoned");
+        daggerGundabadUrukPoisoned = new LOTRItemDagger(LOTRMaterial.GUNDABAD_URUK, LOTRItemDagger.DaggerEffect.POISONED_WOUND).setUnlocalizedName("lotr:daggerGundabadUrukPoisoned");
         spearGundabadUruk = new LOTRItemSpear(LOTRMaterial.GUNDABAD_URUK).setUnlocalizedName("lotr:spearGundabadUruk");
         pikeGundabadUruk = new LOTRItemPike(LOTRMaterial.GUNDABAD_URUK).setUnlocalizedName("lotr:pikeGundabadUruk");
         gundabadUrukBow = new LOTRItemBow(LOTRMaterial.GUNDABAD_URUK, 1.6).setDrawTime(25).setUnlocalizedName("lotr:gundabadUrukBow");
         hammerTauredain = new LOTRItemHammer(LOTRMaterial.TAUREDAIN).setUnlocalizedName("lotr:hammerTauredain");
         swordDorwinionElf = new LOTRItemSword(LOTRMaterial.DORWINION_ELF).setIsElvenBlade().setUnlocalizedName("lotr:swordDorwinionElf");
         daggerDorwinionElf = new LOTRItemDagger(LOTRMaterial.DORWINION_ELF).setIsElvenBlade().setUnlocalizedName("lotr:daggerDorwinionElf");
-        daggerDorwinionElfPoisoned = new LOTRItemDagger(LOTRMaterial.DORWINION_ELF, LOTRItemDagger.DaggerEffect.POISON).setIsElvenBlade().setUnlocalizedName("lotr:daggerDorwinionElfPoisoned");
+        daggerDorwinionElfPoisoned = new LOTRItemDagger(LOTRMaterial.DORWINION_ELF, LOTRItemDagger.DaggerEffect.POISONED_WOUND).setIsElvenBlade().setUnlocalizedName("lotr:daggerDorwinionElfPoisoned");
         battleaxeTauredain = new LOTRItemBattleaxe(LOTRMaterial.TAUREDAIN).setUnlocalizedName("lotr:battleaxeTauredain");
         pikeTauredain = new LOTRItemPike(LOTRMaterial.TAUREDAIN).setUnlocalizedName("lotr:pikeTauredain");
         clubMoredain = new LOTRItemHammer(LOTRMaterial.MOREDAIN_WOOD).setUnlocalizedName("lotr:clubMoredain");
@@ -3461,7 +3459,7 @@ public class LOTRMod {
         rangerBow = new LOTRItemBow(LOTRMaterial.RANGER, 1.25).setUnlocalizedName("lotr:rangerBow");
         swordRhun = new LOTRItemSword(LOTRMaterial.RHUN).setUnlocalizedName("lotr:swordRhun");
         daggerRhun = new LOTRItemDagger(LOTRMaterial.RHUN).setUnlocalizedName("lotr:daggerRhun");
-        daggerRhunPoisoned = new LOTRItemDagger(LOTRMaterial.RHUN, LOTRItemDagger.DaggerEffect.POISON).setUnlocalizedName("lotr:daggerRhunPoisoned");
+        daggerRhunPoisoned = new LOTRItemDagger(LOTRMaterial.RHUN, LOTRItemDagger.DaggerEffect.POISONED_WOUND).setUnlocalizedName("lotr:daggerRhunPoisoned");
         spearRhun = new LOTRItemSpear(LOTRMaterial.RHUN).setUnlocalizedName("lotr:spearRhun");
         polearmRhun = new LOTRItemPolearm(LOTRMaterial.RHUN).setUnlocalizedName("lotr:polearmRhun");
         pikeRhun = new LOTRItemPike(LOTRMaterial.RHUN).setUnlocalizedName("lotr:pikeRhun");
@@ -3498,7 +3496,7 @@ public class LOTRMod {
         raisins = new LOTRItemFood(1, 0.1f, false).setUnlocalizedName("lotr:raisins");
         swordRivendell = new LOTRItemSword(LOTRMaterial.RIVENDELL).setIsElvenBlade().setUnlocalizedName("lotr:swordRivendell");
         daggerRivendell = new LOTRItemDagger(LOTRMaterial.RIVENDELL).setIsElvenBlade().setUnlocalizedName("lotr:daggerRivendell");
-        daggerRivendellPoisoned = new LOTRItemDagger(LOTRMaterial.RIVENDELL, LOTRItemDagger.DaggerEffect.POISON).setIsElvenBlade().setUnlocalizedName("lotr:daggerRivendellPoisoned");
+        daggerRivendellPoisoned = new LOTRItemDagger(LOTRMaterial.RIVENDELL, LOTRItemDagger.DaggerEffect.POISONED_WOUND).setIsElvenBlade().setUnlocalizedName("lotr:daggerRivendellPoisoned");
         spearRivendell = new LOTRItemSpear(LOTRMaterial.RIVENDELL).setUnlocalizedName("lotr:spearRivendell");
         helmetRivendell = new LOTRItemArmor(LOTRMaterial.RIVENDELL, 0).setUnlocalizedName("lotr:helmetRivendell");
         bodyRivendell = new LOTRItemArmor(LOTRMaterial.RIVENDELL, 1).setUnlocalizedName("lotr:bodyRivendell");
@@ -3509,7 +3507,7 @@ public class LOTRMod {
         longspearRivendell = new LOTRItemPolearmLong(LOTRMaterial.RIVENDELL).setUnlocalizedName("lotr:longspearRivendell");
         swordArnor = new LOTRItemSword(LOTRMaterial.ARNOR).setUnlocalizedName("lotr:swordArnor");
         daggerArnor = new LOTRItemDagger(LOTRMaterial.ARNOR).setUnlocalizedName("lotr:daggerArnor");
-        daggerArnorPoisoned = new LOTRItemDagger(LOTRMaterial.ARNOR, LOTRItemDagger.DaggerEffect.POISON).setUnlocalizedName("lotr:daggerArnorPoisoned");
+        daggerArnorPoisoned = new LOTRItemDagger(LOTRMaterial.ARNOR, LOTRItemDagger.DaggerEffect.POISONED_WOUND).setUnlocalizedName("lotr:daggerArnorPoisoned");
         spearArnor = new LOTRItemSpear(LOTRMaterial.ARNOR).setUnlocalizedName("lotr:spearArnor");
         rivendellBow = new LOTRItemBow(LOTRMaterial.RIVENDELL, 1.3).setUnlocalizedName("lotr:rivendellBow");
         shovelRivendell = new LOTRItemShovel(LOTRMaterial.RIVENDELL).setUnlocalizedName("lotr:shovelRivendell");
@@ -3547,7 +3545,7 @@ public class LOTRMod {
         bootsCorsair = new LOTRItemArmor(LOTRMaterial.CORSAIR, 3).setUnlocalizedName("lotr:bootsCorsair");
         swordCorsair = new LOTRItemSword(LOTRMaterial.CORSAIR).setUnlocalizedName("lotr:swordCorsair");
         daggerCorsair = new LOTRItemDagger(LOTRMaterial.CORSAIR).setUnlocalizedName("lotr:daggerCorsair");
-        daggerCorsairPoisoned = new LOTRItemDagger(LOTRMaterial.CORSAIR, LOTRItemDagger.DaggerEffect.POISON).setUnlocalizedName("lotr:daggerCorsairPoisoned");
+        daggerCorsairPoisoned = new LOTRItemDagger(LOTRMaterial.CORSAIR, LOTRItemDagger.DaggerEffect.POISONED_WOUND).setUnlocalizedName("lotr:daggerCorsairPoisoned");
         spearCorsair = new LOTRItemSpear(LOTRMaterial.CORSAIR).setUnlocalizedName("lotr:spearCorsair");
         battleaxeCorsair = new LOTRItemBattleaxe(LOTRMaterial.CORSAIR).setUnlocalizedName("lotr:battleaxeCorsair");
         helmetUmbar = new LOTRItemArmor(LOTRMaterial.UMBAR, 0, "helmet").setUnlocalizedName("lotr:helmetUmbar");
@@ -3560,7 +3558,7 @@ public class LOTRMod {
         bootsHarnedor = new LOTRItemArmor(LOTRMaterial.HARNEDOR, 3).setUnlocalizedName("lotr:bootsHarnedor");
         swordHarad = new LOTRItemSword(LOTRMaterial.NEAR_HARAD).setUnlocalizedName("lotr:swordHarad");
         daggerHarad = new LOTRItemDagger(LOTRMaterial.NEAR_HARAD).setUnlocalizedName("lotr:daggerHarad");
-        daggerHaradPoisoned = new LOTRItemDagger(LOTRMaterial.NEAR_HARAD, LOTRItemDagger.DaggerEffect.POISON).setUnlocalizedName("lotr:daggerHaradPoisoned");
+        daggerHaradPoisoned = new LOTRItemDagger(LOTRMaterial.NEAR_HARAD, LOTRItemDagger.DaggerEffect.POISONED_WOUND).setUnlocalizedName("lotr:daggerHaradPoisoned");
         spearHarad = new LOTRItemSpear(LOTRMaterial.NEAR_HARAD).setUnlocalizedName("lotr:spearHarad");
         pikeHarad = new LOTRItemPike(LOTRMaterial.NEAR_HARAD).setUnlocalizedName("lotr:pikeHarad");
         swordGulfHarad = new LOTRItemSword(LOTRMaterial.GULF_HARAD).setUnlocalizedName("lotr:swordGulfHarad");
@@ -3581,7 +3579,7 @@ public class LOTRMod {
         bootsBlackNumenorean = new LOTRItemArmor(LOTRMaterial.BLACK_NUMENOREAN, 3).setUnlocalizedName("lotr:bootsBlackNumenorean");
         swordBlackNumenorean = new LOTRItemSword(LOTRMaterial.BLACK_NUMENOREAN).setUnlocalizedName("lotr:swordBlackNumenorean");
         daggerBlackNumenorean = new LOTRItemDagger(LOTRMaterial.BLACK_NUMENOREAN).setUnlocalizedName("lotr:daggerBlackNumenorean");
-        daggerBlackNumenoreanPoisoned = new LOTRItemDagger(LOTRMaterial.BLACK_NUMENOREAN, LOTRItemDagger.DaggerEffect.POISON).setUnlocalizedName("lotr:daggerBlackNumenoreanPoisoned");
+        daggerBlackNumenoreanPoisoned = new LOTRItemDagger(LOTRMaterial.BLACK_NUMENOREAN, LOTRItemDagger.DaggerEffect.POISONED_WOUND).setUnlocalizedName("lotr:daggerBlackNumenoreanPoisoned");
         spearBlackNumenorean = new LOTRItemSpear(LOTRMaterial.BLACK_NUMENOREAN).setUnlocalizedName("lotr:spearBlackNumenorean");
         maceBlackNumenorean = new LOTRItemHammer(LOTRMaterial.BLACK_NUMENOREAN).setUnlocalizedName("lotr:maceBlackNumenorean");
         redClayBall = new Item().setCreativeTab(LOTRCreativeTabs.tabMaterials).setUnlocalizedName("lotr:redClayBall");
@@ -3625,7 +3623,7 @@ public class LOTRMod {
         mugboyar = new LOTRItemMug(2.25f).setDrinkStats(4, 0.4f).setUnlocalizedName("lotr:mugboyar");
         
         daggerDarkwood = new LOTRItemDagger(LOTRMaterial.DARKWOOD).setUnlocalizedName("lotr:daggerDarkwood");
-        daggerDarkwoodPoisoned = new LOTRItemDagger(LOTRMaterial.DARKWOOD, LOTRItemDagger.DaggerEffect.POISON).setUnlocalizedName("lotr:daggerDarkwoodPoisoned");
+        daggerDarkwoodPoisoned = new LOTRItemDagger(LOTRMaterial.DARKWOOD, LOTRItemDagger.DaggerEffect.POISONED_WOUND).setUnlocalizedName("lotr:daggerDarkwoodPoisoned");
         
         pickaxeDarkwood = new LOTRItemPickaxe(LOTRMaterial.DARKWOOD).setUnlocalizedName("lotr:pickaxeDarkwood");
         axeDarkwood = new LOTRItemAxe(LOTRMaterial.DARKWOOD).setUnlocalizedName("lotr:axeDarkwood");
@@ -3760,9 +3758,9 @@ public class LOTRMod {
          bootsNumenor = new LOTRItemArmor(LOTRMaterial.NUMENOR, 3).setUnlocalizedName("lotr:boots_Num");
         
          daggerDarkwood = new LOTRItemDagger(LOTRMaterial.DARKWOOD).setUnlocalizedName("lotr:daggerDarkwood");
-         daggerDarkwoodPoisoned = new LOTRItemDagger(LOTRMaterial.DARKWOOD, LOTRItemDagger.DaggerEffect.POISON).setUnlocalizedName("lotr:daggerDarkwoodPoisoned");
+         daggerDarkwoodPoisoned = new LOTRItemDagger(LOTRMaterial.DARKWOOD, LOTRItemDagger.DaggerEffect.POISONED_WOUND).setUnlocalizedName("lotr:daggerDarkwoodPoisoned");
          daggerKhand = new LOTRItemDagger(LOTRMaterial.KHAND).setUnlocalizedName("lotr:daggerKhand");
-         daggerKhandPoisoned = new LOTRItemDagger(LOTRMaterial.KHAND, LOTRItemDagger.DaggerEffect.POISON).setUnlocalizedName("lotr:daggerKhandPoisoned");
+         daggerKhandPoisoned = new LOTRItemDagger(LOTRMaterial.KHAND, LOTRItemDagger.DaggerEffect.POISONED_WOUND).setUnlocalizedName("lotr:daggerKhandPoisoned");
         
         helmet_gund = new LOTRItemArmor(LOTRMaterial.GUND, 0).setUnlocalizedName("lotr:helmet_gund");
         body_gund = new LOTRItemArmor(LOTRMaterial.GUND, 1).setUnlocalizedName("lotr:body_gund");
@@ -3841,9 +3839,9 @@ public class LOTRMod {
         boots_red_dwarven = new LOTRItemArmor(LOTRMaterial.RED_DWARVEN, 3).setUnlocalizedName("lotr:boots_red_dwarven");
         boots_wind_dwarven = new LOTRItemArmor(LOTRMaterial.WIND_DWARVEN, 3).setUnlocalizedName("lotr:boots_wind_dwarven");
         dagger_red_dwarven = new LOTRItemDagger(LOTRMaterial.RED_DWARVEN).setUnlocalizedName("lotr:dagger_red_dwarven");
-        dagger_red_dwarven_poisoned = new LOTRItemDagger(LOTRMaterial.RED_DWARVEN, DaggerEffect.POISON).setUnlocalizedName("lotr:dagger_red_dwarven_poisoned");
+        dagger_red_dwarven_poisoned = new LOTRItemDagger(LOTRMaterial.RED_DWARVEN, DaggerEffect.POISONED_WOUND).setUnlocalizedName("lotr:dagger_red_dwarven_poisoned");
         dagger_wind_dwarven = new LOTRItemDagger(LOTRMaterial.WIND_DWARVEN).setUnlocalizedName("lotr:dagger_wind_dwarven");
-        dagger_wind_dwarven_poisoned = new LOTRItemDagger(LOTRMaterial.WIND_DWARVEN, DaggerEffect.POISON).setUnlocalizedName("lotr:dagger_wind_dwarven_poisoned");
+        dagger_wind_dwarven_poisoned = new LOTRItemDagger(LOTRMaterial.WIND_DWARVEN, DaggerEffect.POISONED_WOUND).setUnlocalizedName("lotr:dagger_wind_dwarven_poisoned");
         hammer_red_dwarven = new LOTRItemHammer(LOTRMaterial.RED_DWARVEN).setUnlocalizedName("lotr:hammer_red_dwarven");
         hammer_wind_dwarven = new LOTRItemHammer(LOTRMaterial.WIND_DWARVEN).setUnlocalizedName("lotr:hammer_wind_dwarven");
         helmet_red_dwarven = new LOTRItemArmor(LOTRMaterial.RED_DWARVEN, 0).setUnlocalizedName("lotr:helmet_red_dwarven");
@@ -3867,7 +3865,7 @@ public class LOTRMod {
         throwing_axe_red_dwarven = new LOTRItemThrowingAxe(LOTRMaterial.MET).setUnlocalizedName("lotr:throwing_axe_red_dwarven");
         throwing_axe_wind_dwarven = new LOTRItemThrowingAxe(LOTRMaterial.MET).setUnlocalizedName("lotr:throwing_axe_wind_dwarven");
         daggerNumenor = new LOTRItemDagger(LOTRMaterial.NUMENOR).setUnlocalizedName("lotr:daggerNumenor");
-        daggerNumenorPoisoned = new LOTRItemDagger(LOTRMaterial.NUMENOR, LOTRItemDagger.DaggerEffect.POISON).setUnlocalizedName("lotr:daggerNumenorPoisoned");
+        daggerNumenorPoisoned = new LOTRItemDagger(LOTRMaterial.NUMENOR, LOTRItemDagger.DaggerEffect.POISONED_WOUND).setUnlocalizedName("lotr:daggerNumenorPoisoned");
 
         dunlendingClub = new Item().setCreativeTab(LOTRCreativeTabs.tabCombat).setUnlocalizedName("lotr:dunlendingClub");
         lanceGondor = new Item().setCreativeTab(LOTRCreativeTabs.tabCombat).setUnlocalizedName("lotr:lanceGondor");
@@ -5725,7 +5723,8 @@ this.registerItem(spearStone);this.registerItem(orcSkullStaff);
         LOTRBiome.initBiomes();
         LOTREntityRegistry.loadRegisteredNPCs(event);
         LOTRShields.forceClassLoad();
-        LOTRPoisonedDrinks.registerPotion();
+        LOTRPoisonDebuffs.registerDrinkPotion();
+        LOTRPoisonDebuffs.registerWoundPotion();
         LOTRPotionChanges.changePotions();
     }
 

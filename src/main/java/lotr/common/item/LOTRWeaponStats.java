@@ -144,7 +144,7 @@ public class LOTRWeaponStats {
     public static boolean isPoisoned(ItemStack itemstack) {
         if(itemstack != null) {
             Item item = itemstack.getItem();
-            return item instanceof LOTRItemDagger && ((LOTRItemDagger) item).getDaggerEffect() == LOTRItemDagger.DaggerEffect.POISON;
+            return item instanceof LOTRItemDagger && ((LOTRItemDagger) item).getDaggerEffect() == LOTRItemDagger.DaggerEffect.POISONED_WOUND;
         }
         return false;
     }

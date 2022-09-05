@@ -9,6 +9,7 @@ public class LOTRDamage {
     public static DamageSource frost = new DamageSource("lotr.frost").setDamageBypassesArmor();
     public static DamageSource poisonDrink = new DamageSource("lotr.poisonDrink").setDamageBypassesArmor().setMagicDamage();
     public static DamageSource plantHurt = new DamageSource("lotr.plantHurt").setDamageBypassesArmor();
+    public static DamageSource poisonedWound = new DamageSource("lotr.poisonedWound").setDamageBypassesArmor();
 
     public static void doFrostDamage(EntityPlayerMP entityplayer) {
         LOTRPacketEnvironmentOverlay packet = new LOTRPacketEnvironmentOverlay(LOTRPacketEnvironmentOverlay.Overlay.FROST);

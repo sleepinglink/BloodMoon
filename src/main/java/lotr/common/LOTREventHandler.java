@@ -9,7 +9,6 @@ import cpw.mods.fml.common.IFuelHandler;
 import cpw.mods.fml.common.eventhandler.Event;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.PlayerEvent;
-import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import lotr.common.block.*;
 import lotr.common.enchant.*;
@@ -667,8 +666,8 @@ public class LOTREventHandler implements IFuelHandler {
         World world = entityplayer.worldObj;
         ItemStack itemstack = event.item;
         ItemStack result = event.result;
-        if(!world.isRemote && LOTRPoisonedDrinks.isDrinkPoisoned(itemstack)) {
-            LOTRPoisonedDrinks.addPoisonEffect(entityplayer, itemstack);
+        if(!world.isRemote && LOTRPoisonDebuffs.isDrinkPoisoned(itemstack)) {
+            LOTRPoisonDebuffs.addPoisonEffect(entityplayer, itemstack);
         }
     }
 
@@ -1508,7 +1507,7 @@ public class LOTREventHandler implements IFuelHandler {
             }
         }
         if(event.source.getSourceOfDamage() instanceof LOTREntityArrowPoisoned && !world.isRemote) {
-            LOTRItemDagger.applyStandardPoison(entity);
+            LOTRItemDagger.applyPoisonedWoundEffect(entity);
         }
         if(!world.isRemote) {
             if(LOTREnchantmentHelper.hasMeleeOrRangedEnchant(event.source, LOTREnchantment.fire)) {

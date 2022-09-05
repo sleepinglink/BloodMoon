@@ -3,7 +3,7 @@ package lotr.common.recipe;
 import java.lang.reflect.Field;
 import cpw.mods.fml.common.FMLLog;
 import lotr.common.LOTRMod;
-import lotr.common.item.LOTRPoisonedDrinks;
+import lotr.common.item.LOTRPoisonDebuffs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.*;
@@ -19,7 +19,7 @@ public class LOTRRecipesPoisonDrinks implements IRecipe {
         for(int i = 0; i < inv.getSizeInventory(); ++i) {
             ItemStack itemstack = inv.getStackInSlot(i);
             if(itemstack == null) continue;
-            if(LOTRPoisonedDrinks.canPoison(itemstack)) {
+            if(LOTRPoisonDebuffs.canPoison(itemstack)) {
                 if(drink != null) {
                     return false;
                 }
@@ -48,7 +48,7 @@ public class LOTRRecipesPoisonDrinks implements IRecipe {
             for(int i = 0; i < inv.getSizeInventory(); ++i) {
                 ItemStack itemstack = inv.getStackInSlot(i);
                 if(itemstack == null) continue;
-                if(LOTRPoisonedDrinks.canPoison(itemstack)) {
+                if(LOTRPoisonDebuffs.canPoison(itemstack)) {
                     if(drink != null) {
                         return null;
                     }
@@ -68,7 +68,7 @@ public class LOTRRecipesPoisonDrinks implements IRecipe {
                 return null;
             }
             result = drink.copy();
-            LOTRPoisonedDrinks.setDrinkPoisoned(result, true);
+            LOTRPoisonDebuffs.setDrinkPoisoned(result, true);
             craftingPlayer = null;
             try {
                 Container cwb = null;
@@ -94,7 +94,7 @@ public class LOTRRecipesPoisonDrinks implements IRecipe {
             }
         }
         if(craftingPlayer != null) {
-            LOTRPoisonedDrinks.setPoisonerPlayer(result, craftingPlayer);
+            LOTRPoisonDebuffs.setPoisonerPlayer(result, craftingPlayer);
         }
         else {
             FMLLog.bigWarning("LOTR Warning! Poisoned drink was crafted, player could not be found!", new Object[0]);

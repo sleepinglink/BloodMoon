@@ -1,9 +1,9 @@
 package lotr.common.item;
 
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.EnumDifficulty;
 
@@ -38,21 +38,27 @@ public class LOTRItemDagger extends LOTRItemSword {
         if(this.effect == DaggerEffect.NONE) {
             return true;
         }
-        if(this.effect == DaggerEffect.POISON) {
-            LOTRItemDagger.applyStandardPoison(hitEntity);
+        if(this.effect == DaggerEffect.POISONED_WOUND) {
+            LOTRItemDagger.applyPoisonedWoundEffect(hitEntity);
         }
         return true;
     }
 
-    public static void applyStandardPoison(EntityLivingBase entity) {
+    public static void applyPoisonedWoundEffect(EntityLivingBase entity) {
         EnumDifficulty difficulty = entity.worldObj.difficultySetting;
         int duration = 1 + difficulty.getDifficultyId() * 2;
-        PotionEffect poison = new PotionEffect(Potion.poison.id, (duration + itemRand.nextInt(duration)) * 20);
-        entity.addPotionEffect(poison);
+        PotionEffect poisonedWound = new PotionEffect(LOTRPoisonDebuffs.woundPoison.id, (duration + itemRand.nextInt(duration)) * 20);
+        entity.addPotionEffect(poisonedWound);
+
+        /*public static void addPoisonEffect(EntityPlayer entityplayer, ItemStack itemstack) {
+            int duration = 300;
+            entityplayer.addPotionEffect(new PotionEffect(LOTRPoisonDebuffs.drinkPoison.id, duration));
+        }*/
     }
 
+
     public static enum DaggerEffect {
-        NONE, POISON;
+        NONE, POISONED_WOUND;
 
     }
 

@@ -3,7 +3,7 @@ package lotr.common.tileentity;
 import java.util.ArrayList;
 import java.util.List;
 import lotr.common.item.LOTRItemMug;
-import lotr.common.item.LOTRPoisonedDrinks;
+import lotr.common.item.LOTRPoisonDebuffs;
 import lotr.common.recipe.LOTRBrewingRecipes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -92,15 +92,15 @@ public class LOTRTileEntityBarrel extends TileEntity implements IInventory {
     public boolean canPoisonBarrel() {
         if(this.barrelMode != 0 && this.inventory[9] != null) {
             ItemStack itemstack = this.inventory[9];
-            return LOTRPoisonedDrinks.canPoison(itemstack) && !LOTRPoisonedDrinks.isDrinkPoisoned(itemstack);
+            return LOTRPoisonDebuffs.canPoison(itemstack) && !LOTRPoisonDebuffs.isDrinkPoisoned(itemstack);
         }
         return false;
     }
 
     public void poisonBarrel(EntityPlayer entityplayer) {
         ItemStack itemstack = this.inventory[9];
-        LOTRPoisonedDrinks.setDrinkPoisoned(itemstack, true);
-        LOTRPoisonedDrinks.setPoisonerPlayer(itemstack, entityplayer);
+        LOTRPoisonDebuffs.setDrinkPoisoned(itemstack, true);
+        LOTRPoisonDebuffs.setPoisonerPlayer(itemstack, entityplayer);
     }
 
     @Override

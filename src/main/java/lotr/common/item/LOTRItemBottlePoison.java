@@ -32,7 +32,7 @@ public class LOTRItemBottlePoison extends Item {
     @Override
     public ItemStack onEaten(ItemStack itemstack, World world, EntityPlayer entityplayer) {
         if(!world.isRemote) {
-            LOTRPoisonedDrinks.addPoisonEffect(entityplayer, itemstack);
+            LOTRPoisonDebuffs.addPoisonEffect(entityplayer, itemstack);
         }
         return !entityplayer.capabilities.isCreativeMode ? new ItemStack(Items.glass_bottle) : itemstack;
     }

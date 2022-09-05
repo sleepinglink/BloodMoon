@@ -55,7 +55,7 @@ public class LOTREntityCrossbowBolt extends LOTREntityProjectileBase {
         Item item;
         ItemStack itemstack;
         if(!this.worldObj.isRemote && entity instanceof EntityLivingBase && (itemstack = this.getProjectileItem()) != null && (item = itemstack.getItem()) instanceof LOTRItemCrossbowBolt && ((LOTRItemCrossbowBolt) item).isPoisoned) {
-            LOTRItemDagger.applyStandardPoison((EntityLivingBase) entity);
+            LOTRItemDagger.applyPoisonedWoundEffect((EntityLivingBase) entity);
         }
         super.onCollideWithTarget(entity);
     }

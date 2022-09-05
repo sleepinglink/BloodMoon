@@ -2569,7 +2569,6 @@ public class LOTRMod {
         daub = new LOTRBlockDaub().setBlockName("lotr:daub");
         gateRhun = LOTRBlockGate.createWooden(true).setBlockName("lotr:gateRhun");
         yamCrop = new LOTRBlockYamCrop().setBlockName("lotr:yam");
-        yamCrop = new LOTRBlockRiceCrop().setBlockName("lotr:rice");
         kebabBlock = new LOTRBlockKebab().setBlockName("lotr:kebabBlock");
         stairsPomegranate = new LOTRBlockStairs(planks3, 2).setBlockName("lotr:stairsPomegranate");
         oreSalt = new LOTRBlockOre().setBlockName("lotr:oreSalt");

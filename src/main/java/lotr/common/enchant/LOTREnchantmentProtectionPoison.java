@@ -18,7 +18,7 @@ public class LOTREnchantmentProtectionPoison extends LOTREnchantmentProtectionSp
 
     @Override
     protected boolean protectsAgainst(DamageSource source) {
-        return source == LOTRDamage.plantHurt;
+        return source == LOTRDamage.poisonedWound;
     }
 
     @Override

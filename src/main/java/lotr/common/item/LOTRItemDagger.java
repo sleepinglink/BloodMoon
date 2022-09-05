@@ -45,15 +45,9 @@ public class LOTRItemDagger extends LOTRItemSword {
     }
 
     public static void applyPoisonedWoundEffect(EntityLivingBase entity) {
-        EnumDifficulty difficulty = entity.worldObj.difficultySetting;
-        int duration = 1 + difficulty.getDifficultyId() * 2;
-        PotionEffect poisonedWound = new PotionEffect(LOTRPoisonDebuffs.woundPoison.id, (duration + itemRand.nextInt(duration)) * 20);
+        int duration = 2;
+        PotionEffect poisonedWound = new PotionEffect(LOTRPoisonDebuffs.woundPoison.id, duration);
         entity.addPotionEffect(poisonedWound);
-
-        /*public static void addPoisonEffect(EntityPlayer entityplayer, ItemStack itemstack) {
-            int duration = 300;
-            entityplayer.addPotionEffect(new PotionEffect(LOTRPoisonDebuffs.drinkPoison.id, duration));
-        }*/
     }
 
 
@@ -61,5 +55,4 @@ public class LOTRItemDagger extends LOTRItemSword {
         NONE, POISONED_WOUND;
 
     }
-
 }

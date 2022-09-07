@@ -3,7 +3,6 @@ package lotr.common.enchant;
 import lotr.common.LOTRDamage;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.MathHelper;
 import net.minecraft.util.StatCollector;
 
 public class LOTREnchantmentProtectionPoison extends LOTREnchantmentProtectionSpecial {
@@ -13,17 +12,16 @@ public class LOTREnchantmentProtectionPoison extends LOTREnchantmentProtectionSp
 
     @Override
     public String getDescription(ItemStack itemstack) {
-        return StatCollector.translateToLocalFormatted("lotr.enchant.protectFire.desc", this.formatAdditiveInt(this.calcIntProtection()));
+        return StatCollector.translateToLocalFormatted("lotr.enchant.protectPoisonWound.desc", this.formatAdditiveInt(this.calcIntProtection()));
     }
 
     @Override
     protected boolean protectsAgainst(DamageSource source) {
-        return source == LOTRDamage.poisonedWound;
+        return source == LOTRDamage.poisonedWound && source == LOTRDamage.poisonDrink;
     }
 
     @Override
-    protected int calcIntProtection() {
-        float f = (float) this.protectLevel * (float) (this.protectLevel + 1) / 2.0f;
-        return 3 + MathHelper.floor_float(f);
+    protected int calcIntProtection() {;
+        return 1 + protectLevel;
     }
 }

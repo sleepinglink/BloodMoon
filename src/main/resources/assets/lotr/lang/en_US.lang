@@ -166,7 +166,6 @@ tile.lotr:leaves10.0.name=Листва боярышника
 tile.lotr:leaves10.1.name=Листва Жакаранды
 tile.lotr:leaves10.1.name=
 tile.lotr:leaves10.0.name=
-МОБЫ
 
 enity.lotr.Khand.name=Житель Кханда
 enity.lotr.Dark_Wood.name=Тёмный Эльф
@@ -175,7 +174,6 @@ enity.lotr.Uruk_dg.name=Урук Дол Гулдура
 enity.lotr.Numenor.name=Житель Нуменора
 enity.lotr.NumenorSoldier.name=Нуменорский воин
 
-ДОСТИЖЕНИЯ
 
 lotr.achievement.category.KHAND=Земли Кханда
 
@@ -727,6 +725,7 @@ container.lotr.unsmeltery=Переплавка
 death.attack.lotr.frost=%1$s замёрз 
 death.attack.lotr.plantHurt=%1$s был убит растением
 death.attack.lotr.poisonDrink=%1$s отравился
+death.attack.lotr.poisonedWound=%1$s был отравлен ядом
 entity.lotr.AngmarBannerBearer.name=Ангмарский орк-знаменосец
 entity.lotr.AngmarHillman.name=Рудаурский горец
 entity.lotr.AngmarHillmanAxeThrower.name=Рудаурский топорометатель
@@ -3476,7 +3475,7 @@ lotr.enchant.protectFall1=Толстый
 lotr.enchant.protectFall2=Кованый
 lotr.enchant.protectFall3=Лёгкий
 lotr.enchant.protectFire.desc=%s защита от огня
-lotr.enchant.protectPoison.desc=%s защита от яда
+lotr.enchant.protectPoisonWound.desc=%s защита от яда
 lotr.enchant.protectFire1=Охлаждающий
 lotr.enchant.protectFire2=Противопожарный
 lotr.enchant.protectFire3=Белегостский
@@ -3538,7 +3537,6 @@ lotr.faction.DARK_WOOD.rank.warrior=Воин
 lotr.faction.DARK_WOOD.rank.standard bearer=Знаменосец
 lotr.faction.DARK_WOOD.rank.commander=Командир 
 lotr.faction.DARK_WOOD.subtitle=Темные эльфы далеких лесов
- 
 lotr.faction.NUMENOR.name=Нуменор
 lotr.faction.NUMENOR.rank.guest=Гость
 lotr.faction.NUMENOR.rank.friend=Друг

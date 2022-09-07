@@ -19,13 +19,19 @@ public class LOTRPotionPoisonedWound extends Potion {
 
     @Override
     public void performEffect(EntityLivingBase entity, int level) {
-        entity.attackEntityFrom(LOTRDamage.poisonedWound, 1.0f);
+        if (this.id == LOTRPoisonDebuffs.woundPoison.id)
+        {
+            if (entity.getHealth() > 1.0F)
+            {
+                entity.attackEntityFrom(LOTRDamage.poisonedWound, 1.0F);
+            }
+        }
     }
 
     @Override
     public boolean isReady(int tick, int level) {
         int freq = 5 >> level;
-        return freq > 0 ? tick % freq == 0 : true;
+        return freq <= 0 || tick % freq == 0;
     }
 
     @SideOnly(value = Side.CLIENT)
